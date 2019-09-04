@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>841BC - MD5</title>
+        <link rel="stylesheet" href="https://sillyemperor.github.io/theme/css/main.css" />
+        <link href="https://sillyemperor.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="841BC Atom Feed" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://sillyemperor.github.io/">841BC </a></h1>
+                <nav><ul>
+                    <li><a href="https://sillyemperor.github.io/category/gis.html">GIS</a></li>
+                    <li><a href="https://sillyemperor.github.io/category/java.html">Java</a></li>
+                    <li><a href="https://sillyemperor.github.io/category/linux.html">Linux</a></li>
+                    <li><a href="https://sillyemperor.github.io/category/nginx.html">Nginx</a></li>
+                    <li><a href="https://sillyemperor.github.io/category/python.html">Python</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="https://sillyemperor.github.io/ji-chong-chang-yong-jia-mi-suan-fa-de-bi-jiao.html">几种常用加密算法的比较</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2019-06-04T00:00:00+02:00">
+                Published: 二 04 六月 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://sillyemperor.github.io/author/wang-jiang.html">Wang Jiang</a>
+        </address>
+<p>In <a href="https://sillyemperor.github.io/category/java.html">Java</a>.</p>
+<p>tags: <a href="https://sillyemperor.github.io/tag/md5.html">MD5</a> <a href="https://sillyemperor.github.io/tag/sha.html">SHA</a> <a href="https://sillyemperor.github.io/tag/aes.html">AES</a> </p>
+</footer><!-- /.post-info --><ul>
+<li>采用的机器</li>
+<li>型号名称：   MacBook Pro</li>
+<li>处理器名称：  Intel Core i5</li>
+<li>处理器速度：  3.1 GHz</li>
+<li>处理器数目：  1</li>
+<li>核总数：    2</li>
+<li>
+<p>内存： 8 GB</p>
+</li>
+<li>
+<p>采用的Java版本：</p>
+</li>
+<li>Java HotSpot(TM) 64-Bit Server VM (build 25.162-b12, mixed mode)</li>
+</ul>
+<p>处理5000次相同数据消耗的毫秒数</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>加密</th>
+<th>解密</th>
+<th>可逆</th>
+<th>对称密钥</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MD5</td>
+<td>151</td>
+<td>/</td>
+<td>否</td>
+<td>/</td>
+</tr>
+<tr>
+<td>SHA-1</td>
+<td>48</td>
+<td>/</td>
+<td>否</td>
+<td>/</td>
+</tr>
+<tr>
+<td>SHA-256</td>
+<td>84</td>
+<td>/</td>
+<td>是</td>
+<td>/</td>
+</tr>
+<tr>
+<td>AES</td>
+<td>20</td>
+<td>41</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>DES</td>
+<td>77</td>
+<td>122</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>RSA</td>
+<td>1265</td>
+<td>25120</td>
+<td>是</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+<p>可以看到可逆的算法比不可逆的执行效率低，非对称比对称的执行效率低。不可逆算法适合来对数据进行签名，可以实现防篡改功能。可逆算法适合加密传输，可以用对称和非对称结合实现最好的效果。著名的HTTPS协议就采用非对称加密对传输密钥进行加密，而采用对称算法进行数据加密，这样效率较低的非对称算法只在握手的时候执行一次，即不会对后面的数据传输产生影响，又保证了极好的安全性。</p>
+<p>在算法选择上，MD5已经过时了，可以采用性能和安全性都更好的SHA-256。对称加密采用AES。</p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://sillyemperor.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

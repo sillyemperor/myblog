@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>841BC - Linux</title><link href="https://sillyemperor.github.io/" rel="alternate"></link><link href="https://sillyemperor.github.io/feeds/linux.atom.xml" rel="self"></link><id>https://sillyemperor.github.io/</id><updated>2019-06-04T00:00:00+02:00</updated><entry><title>阿里云磁盘挂载</title><link href="https://sillyemperor.github.io/a-li-yun-ci-pan-gua-zai.html" rel="alternate"></link><published>2019-06-04T00:00:00+02:00</published><updated>2019-06-04T00:00:00+02:00</updated><author><name>Wang Jiang</name></author><id>tag:sillyemperor.github.io,2019-06-04:/a-li-yun-ci-pan-gua-zai.html</id><content type="html">&lt;p&gt;fdisk  -l
+fdisk /dev/vdb         依次输入 n，p，1，两次回车，wq
+mkfs.ext3 /dev/vdb1
+echo /dev/vdb1 /mnt ext3 defaults 0 0 &amp;gt;&amp;gt; /etc/fstab
+mount /dev/vdb1 /mnt
+df -h&lt;/p&gt;
+&lt;p&gt;按照上面这个顺序就可以完成挂载，具体命令的含义，可以自行搜索。&lt;/p&gt;</content><category term="linux"></category></entry></feed>

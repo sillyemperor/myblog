@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>841BC - Nginx</title><link href="https://sillyemperor.github.io/" rel="alternate"></link><link href="https://sillyemperor.github.io/feeds/nginx.atom.xml" rel="self"></link><id>https://sillyemperor.github.io/</id><updated>2019-07-27T00:00:00+02:00</updated><entry><title>Nginx发布MP4文件</title><link href="https://sillyemperor.github.io/nginxfa-bu-mp4wen-jian.html" rel="alternate"></link><published>2019-07-27T00:00:00+02:00</published><updated>2019-07-27T00:00:00+02:00</updated><author><name>Wang Jiang</name></author><id>tag:sillyemperor.github.io,2019-07-27:/nginxfa-bu-mp4wen-jian.html</id><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;listen&lt;/span&gt;  &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;server_name&lt;/span&gt;  &lt;span class="n"&gt;video&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;example&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="k"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;videos&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;mp4&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;mp4_buffer_size&lt;/span&gt;     &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;mp4_max_buffer_size&lt;/span&gt; &lt;span class="mi"&gt;4096&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="nginx"></category><category term="mp4"></category></entry><entry><title>Nginx过滤了带下划线的自定义Header</title><link href="https://sillyemperor.github.io/nginxguo-lu-liao-dai-xia-hua-xian-de-zi-ding-yi-header.html" rel="alternate"></link><published>2019-06-04T00:00:00+02:00</published><updated>2019-06-04T00:00:00+02:00</updated><author><name>Wang Jiang</name></author><id>tag:sillyemperor.github.io,2019-06-04:/nginxguo-lu-liao-dai-xia-hua-xian-de-zi-ding-yi-header.html</id><content type="html">&lt;p&gt;服务的需要一个自定义的header，'my_header'，选择'&lt;em&gt;'而不是'-'的原因就不在这里讨论了。通过nginx反向代理后，传到服务端，'my_header'不见了。问了一下Bing（没用谷歌，也没用Baidu），结果发现nginx里有一个 开关，' underscores_in_headers'，设置为‘off’就会拦截所有带'&lt;/em&gt;'的header，设置为‘on’就放过。缺省是‘off’。所以只要在http或者server中设置一下就好了。&lt;/p&gt;</content><category term="Nginx"></category></entry><entry><title>Nginx实现双向认证，直接上脚本，想学习更多的看参考</title><link href="https://sillyemperor.github.io/nginxshi-xian-shuang-xiang-ren-zheng-zhi-jie-shang-jiao-ben-xiang-xue-xi-geng-duo-de-kan-can-kao.html" rel="alternate"></link><published>2019-06-04T00:00:00+02:00</published><updated>2019-06-04T00:00:00+02:00</updated><author><name>Wang Jiang</name></author><id>tag:sillyemperor.github.io,2019-06-04:/nginxshi-xian-shuang-xiang-ren-zheng-zhi-jie-shang-jiao-ben-xiang-xue-xi-geng-duo-de-kan-can-kao.html</id><summary type="html">&lt;p&gt;第一步、创建证书&lt;/p&gt;
+&lt;p&gt;//创建根证书root&lt;/p&gt;
+&lt;p&gt;openssl genrsa -des3 -out root.key 4096&lt;/p&gt;
+&lt;p&gt;openssl req -new -x509 -days 3650 -key root.key -out root.crt&lt;/p&gt;
+&lt;p&gt;//创建服务器证书server&lt;/p&gt;
+&lt;p&gt;openssl genrsa -des3 -out server.key 1024
+openssl req -new -key server.key -out server.csr 
+openssl x509 -req -days 3560 -in server.csr  -CA root.crt …&lt;/p&gt;</summary><content type="html">&lt;p&gt;第一步、创建证书&lt;/p&gt;
+&lt;p&gt;//创建根证书root&lt;/p&gt;
+&lt;p&gt;openssl genrsa -des3 -out root.key 4096&lt;/p&gt;
+&lt;p&gt;openssl req -new -x509 -days 3650 -key root.key -out root.crt&lt;/p&gt;
+&lt;p&gt;//创建服务器证书server&lt;/p&gt;
+&lt;p&gt;openssl genrsa -des3 -out server.key 1024
+openssl req -new -key server.key -out server.csr 
+openssl x509 -req -days 3560 -in server.csr  -CA root.crt  -CAkey root.key -set_serial 01 -out server.crt&lt;/p&gt;
+&lt;p&gt;//创建乘客端证书client&lt;/p&gt;
+&lt;p&gt;openssl genrsa -des3 -out client.key 1024
+openssl req -new -key client.key -out client.csr 
+openssl x509 -req -days 3560 -in client.csr  -CA root.crt  -CAkey root.key -set_serial 01 -out client.crt&lt;/p&gt;
+&lt;p&gt;第二步、配置服务器&lt;/p&gt;
+&lt;p&gt;//配置Nginx&lt;/p&gt;
+&lt;p&gt;server {
+        listen       443 ssl;
+        server_name  localhost www.test.net;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;ssl&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;ssl_certificate&lt;/span&gt;      &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;路径&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cert&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;crt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;ssl_certificate_key&lt;/span&gt;  &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;路径&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cert&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;key&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="n"&gt;ssl_client_certificate&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;路径&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cert&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;crt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;ssl_verify_client&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="k"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;root&lt;/span&gt;   &lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;index&lt;/span&gt;  &lt;span class="k"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt; &lt;span class="k"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;htm&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;重新启动nginx后，服务器就配置好了。下面说说几种客户端如何访问。&lt;/p&gt;
+&lt;p&gt;第三步、客户端调用&lt;/p&gt;
+&lt;p&gt;假设我们的访问链接就是：https://www.test.net。&lt;/p&gt;
+&lt;p&gt;为了方便使用，将客户端证书与密钥打包。&lt;/p&gt;
+&lt;p&gt;//打包脚本&lt;/p&gt;
+&lt;p&gt;openssl pkcs12 -export -clcerts -in client.crt -inkey client.key -out client.p12&lt;/p&gt;
+&lt;p&gt;//curl&lt;/p&gt;
+&lt;p&gt;curl -Sv --cert client.p12:client.key的密码  -k https://www.test.net&lt;/p&gt;
+&lt;p&gt;//Python，使用了 requests，会要求输入client.key的密码 &lt;/p&gt;
+&lt;p&gt;import requests
+requests.get('https://www.test.net', verify=False, cert=('client.crt', 'client.key'))&lt;/p&gt;
+&lt;p&gt;//使用requests_pkcs12&lt;/p&gt;
+&lt;p&gt;from requests_pkcs12 import get
+r = get('https://www.test.net', pkcs12_filename='client.p12', pkcs12_password='client.key的密码', verify=False)&lt;/p&gt;
+&lt;p&gt;此外，这个打包文件还可以直接载入浏览器。&lt;/p&gt;
+&lt;p&gt;参考：&lt;/p&gt;
+&lt;p&gt;http://blog.nategood.com/client-side-certificate-authentication-in-ngi&lt;/p&gt;</content><category term="nginx"></category><category term="https"></category><category term="openssl"></category><category term="证书"></category></entry><entry><title>用systemctl管理nginx服务实现自动启动</title><link href="https://sillyemperor.github.io/yong-systemctlguan-li-nginxfu-wu-shi-xian-zi-dong-qi-dong.html" rel="alternate"></link><published>2019-06-04T00:00:00+02:00</published><updated>2019-06-04T00:00:00+02:00</updated><author><name>Wang Jiang</name></author><id>tag:sillyemperor.github.io,2019-06-04:/yong-systemctlguan-li-nginxfu-wu-shi-xian-zi-dong-qi-dong.html</id><summary type="html">&lt;p&gt;创建文件&lt;/p&gt;
+&lt;p&gt;/lib/systemd/system/nginx.service&lt;/p&gt;
+&lt;p&gt;[Unit]&lt;/p&gt;
+&lt;p&gt;Description=The NGINX HTTP and reverse proxy server&lt;/p&gt;
+&lt;p&gt;After=syslog.target network.target remote-fs.target nss-lookup.target&lt;/p&gt;
+&lt;p&gt;[Service]&lt;/p&gt;
+&lt;p&gt;Type=forking&lt;/p&gt;
+&lt;p&gt;PIDFile=/run/nginx.pid&lt;/p&gt;
+&lt;p&gt;ExecStartPre=/usr/sbin/nginx -t&lt;/p&gt;
+&lt;p&gt;ExecStart=/usr/sbin/nginx&lt;/p&gt;
+&lt;p&gt;ExecReload=/usr/sbin/nginx -s reload&lt;/p&gt;
+&lt;p&gt;ExecStop=/bin/kill -s …&lt;/p&gt;</summary><content type="html">&lt;p&gt;创建文件&lt;/p&gt;
+&lt;p&gt;/lib/systemd/system/nginx.service&lt;/p&gt;
+&lt;p&gt;[Unit]&lt;/p&gt;
+&lt;p&gt;Description=The NGINX HTTP and reverse proxy server&lt;/p&gt;
+&lt;p&gt;After=syslog.target network.target remote-fs.target nss-lookup.target&lt;/p&gt;
+&lt;p&gt;[Service]&lt;/p&gt;
+&lt;p&gt;Type=forking&lt;/p&gt;
+&lt;p&gt;PIDFile=/run/nginx.pid&lt;/p&gt;
+&lt;p&gt;ExecStartPre=/usr/sbin/nginx -t&lt;/p&gt;
+&lt;p&gt;ExecStart=/usr/sbin/nginx&lt;/p&gt;
+&lt;p&gt;ExecReload=/usr/sbin/nginx -s reload&lt;/p&gt;
+&lt;p&gt;ExecStop=/bin/kill -s QUIT $MAINPID&lt;/p&gt;
+&lt;p&gt;PrivateTmp=true&lt;/p&gt;
+&lt;p&gt;[Install]&lt;/p&gt;
+&lt;p&gt;WantedBy=multi-user.target&lt;/p&gt;
+&lt;p&gt;启动项目&lt;/p&gt;
+&lt;p&gt;systemctl enable nginx.service&lt;/p&gt;
+&lt;p&gt;systemctl start nginx.service&lt;/p&gt;
+&lt;p&gt;查看项目状态&lt;/p&gt;
+&lt;p&gt;systemctl status nginx.service&lt;/p&gt;
+&lt;p&gt;Reload项目&lt;/p&gt;
+&lt;p&gt;systemctl reload nginx.service&lt;/p&gt;
+&lt;p&gt;Restart项目&lt;/p&gt;
+&lt;p&gt;systemctl restart nginx.service&lt;/p&gt;</content><category term="nignx"></category><category term="systemctl"></category></entry></feed>
