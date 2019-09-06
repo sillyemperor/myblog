@@ -82,3 +82,37 @@ x = 1
 y = bool(1)
 print(type(y)) # 输出<class 'bool'>
 ```
+6. 整数到布尔型的转换，只有0是假的，其他都是真的
+```python
+print(bool(1)) # True
+print(bool(0)) # False
+print(bool(-1)) # True
+```
+7. 浮点数到布尔型的转换，只有0是假的，其他都是真的
+```python
+print(bool(1.0)) # True
+print(bool(0.0)) # False
+print(bool(-1.0)) # True
+```
+8. 字符串变成布尔型，只有字符串是假的，其他都是真的，包括空格。
+```python
+print(bool('Hello')) # True
+print(bool('')) # False
+print(bool('   ')) # True
+```
+9. 数组变成布尔型，只有空数值是假的，其他都是真的。
+```python
+print(bool([1,2,3])) # True
+print(bool([])) # False
+print(bool([False])) # True
+```
+10. 字典转换成布尔型，空的字典是假的，其他都是真的。
+```python
+print(bool({'name':'小明'})) # True
+print(bool({})) # False
+```
+11. 空类型无论如何都是假的
+```python
+print(bool(None)) # False
+```
+
